@@ -1,0 +1,8 @@
+*.war
+*.ear
+*.db
+.idea/
+.gradle/
+build/
+lib/
+runtime/

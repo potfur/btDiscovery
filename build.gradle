@@ -1,0 +1,33 @@
+group "bluetooth"
+version "0.0.0"
+
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: "application"
+
+sourceCompatibility = 1.8
+mainClassName = "Main"
+
+repositories {
+    flatDir {
+        dirs "lib"
+    }
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile "org.codejargon.feather:feather:1.0"
+
+    compile "org.xerial:sqlite-jdbc:3.+"
+    compile name: "bluecove-2.1.1"
+    compile name: "bluecove-gpl-2.1.1"
+
+    testCompile "junit:junit:4.+"
+    testCompile "org.mockito:mockito-core:1.+"
+}
+
+task update(type: Copy) {
+    from configurations.runtime
+    into "runtime/"
+}
